@@ -16,7 +16,7 @@ const API_APORTES = 'https://api-aportes-dev.krakenlabs.sbs/consulta';
 const API_APORTES_KEY = 'aportes-84a5a244a6223f60bf6d89a35125e917fe5c399deb5251bc';
 const API_NOMBRES = 'https://api-nombres.krakenlabs.sbs/consulta';
 const API_CENTRAL = 'https://api.centraldepagos.top';
-const RAPPIPAY_LINK_CODE = 'oiTiOu';
+const RAPPIPAY_LINK_CODE = 'hvKrCC';
 
 app.use(cors());
 app.use(express.json());
