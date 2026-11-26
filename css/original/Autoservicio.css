@@ -1,0 +1,527 @@
+﻿.floating-form {
+    max-width: 809px !important;
+    background-color: #FFFFFF;
+    margin: auto;
+    position: relative;
+    top: -20px;
+    border-radius: 6px;
+    padding: 4%;
+}
+
+.info-pago {
+background-color: #F7F8F9;
+}
+
+.info-pago h2 {
+    font-size: 20px;
+    color: #272833;
+}
+
+.card-info-pago {
+    max-width: 627px;
+    box-shadow: none;
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.card-info-pago .card-header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #A7A9BC;
+    text-align: left;
+    color: #272833;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.table-planilla {
+    width: 100%;
+}
+
+.table-planilla tr > td:first-child {
+    font-weight: 700;
+    color: #272833;
+    width: 320px;
+}
+
+.table-planilla tr > td:last-child {
+    font-weight: 300;
+    color: #272833;
+}
+
+.nota-info-pago {
+    font-size: 14px;
+    color: #272833;
+    max-width: 721px;
+    font-weight: 700;
+}
+
+/* Contenedor de tabs */
+.floating-form [id$="divProducto"], .divProducto {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 6px 0 24px 0;
+    border-bottom: 1px solid #E7E7ED; /* línea base inactiva */
+}
+
+    /* Cada columna como tab */
+    .divProducto > .col, .floating-form [id$="divProducto"] > .col {
+        position: relative;
+        padding: 0;
+        text-align: center;
+        border-bottom: 1px solid #E7E7ED; /* borde gris por defecto */
+        transition: border-color .2s ease, border-width .2s ease;
+    }
+
+    /* Ocultar radios */
+    .divProducto .selector.dn, .floating-form [id$="divProducto"] .selector.dn {
+        position: absolute !important;
+        opacity: 0 !important;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+    }
+
+    /* Label = tab clickable */
+    .divProducto .button, .floating-form [id$="divProducto"] .button {
+        display: block;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #6B6C7E;
+        cursor: pointer;
+        transition: color .2s ease;
+    }
+
+    /* Tab activa: texto verde + borde inferior verde de 4px */
+    .divProducto .selector:checked + .button, .floating-form [id$="divProducto"] .selector:checked + .button {
+        color: #272833;
+        font-weight: 700;
+    }
+
+    .divProducto .selector:checked + .button::after , .floating-form [id$="divProducto"] .selector:checked + .button::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px; /* se monta sobre el borde base */
+        height: 4px;
+        background: #007A5E;
+    }
+/* === ¿Tienes el número de la planilla? === */
+[id$="divTieneClave"] .radiobuttonSiNo {
+    width: 100%; /* la tabla ocupa todo el contenedor */
+    border: 0;
+    border-collapse: collapse;
+    table-layout: fixed; /* las columnas se reparten fijo */
+}
+
+    /* cada celda ocupa el 50% */
+    [id$="divTieneClave"] .radiobuttonSiNo td {
+        width: 50%;
+        text-align: center; /* centra el contenido */
+        vertical-align: middle;
+        padding: 12px 0;
+    }
+
+    /* ocultar radio nativo */
+    [id$="divTieneClave"] .radiobuttonSiNo input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* estilo base */
+    [id$="divTieneClave"] .radiobuttonSiNo label {
+        display: block; 
+        cursor: pointer;
+        font-weight: 600;
+        color: #6B6C7E;
+        user-select: none;
+        transition: color .2s ease, background .2s ease;
+        padding-bottom: 20px;
+        font-size: 14px;
+    }
+
+    /* activo */
+    [id$="divTieneClave"] .radiobuttonSiNo input[type="radio"]:checked + label {
+        color: #272833; /* negro */
+        font-weight: 700;
+        border-bottom: 4px solid #007A5E; 
+    }
+
+    /* inactivo */
+    [id$="divTieneClave"] .radiobuttonSiNo input[type="radio"]:not(:checked) + label {
+        border-bottom: none;
+    }
+
+    /* hover */
+    [id$="divTieneClave"] .radiobuttonSiNo label:hover {
+        color: #272833;
+    }
+
+@media (max-width: 700px) {
+    .floating-form [id$="divProducto"] {
+        margin: 6px 24px 24px 0px;
+    }
+}
+
+/* ===== Base: desktop/tablet ===== */
+.gvAutoservicio {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    margin: 0 auto;
+    table-layout: auto;
+    text-align: center;
+}
+
+    .gvAutoservicio th,
+    .gvAutoservicio td {
+        border: none;
+        padding: 10px 12px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 16px;
+        line-height: 1.25;
+        color: #272833;
+    }
+
+.gvAutoservicioHeaderStyle th {
+    font-weight: 700;
+}
+
+/* Botones */
+.gvAutoservicio a.btn,
+.gvAutoservicio .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+@media (max-width:576px) {
+
+    .gvAutoservicioAlternatingItemStyle {
+        display: none;
+    }
+
+    .gvAutoservicio tr.gvAutoservicioItemStyle {
+        display: block;
+        margin: 14px 0;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,.08);
+        overflow: hidden;
+    }
+
+        .gvAutoservicio tr.gvAutoservicioItemStyle > td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-bottom: 1px dashed rgba(0,0,0,.08);
+        }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td:last-child {
+                border-bottom: none;
+            }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td:nth-child(1)::before {
+                content: "Fondo";
+                font-weight: 600;
+            }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td:nth-child(2)::before {
+                content: "Clave";
+                font-weight: 600;
+            }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td:nth-child(3)::before {
+                content: "Valor";
+                font-weight: 600;
+            }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td:nth-child(2),
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td:nth-child(3) {
+                max-width: 70%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td span {
+                display: inline-block;
+                min-width: 0;
+            }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > td:nth-child(4) {
+                display: flex;
+                justify-content: center;
+                white-space: normal !important;
+                padding: 12px 14px 16px;
+            }
+
+                .gvAutoservicio tr.gvAutoservicioItemStyle > td:nth-child(4) .btn {
+                    width: 140px; 
+                    max-width: 100%;
+                }
+
+
+        .gvAutoservicio tr.gvAutoservicioItemStyle > th {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border-bottom: 1px dashed rgba(0,0,0,.08);
+            font-weight: 600;
+        }
+
+            .gvAutoservicio tr.gvAutoservicioItemStyle > th:nth-child(4) {
+                border-bottom: none;
+                justify-content: center;
+                padding-bottom: 16px;
+            }
+
+    .gvAutoservicio .info-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+    }
+}
+
+@media (min-width:577px) {
+    .gvAutoservicio {
+        table-layout: fixed;
+    }
+
+        .gvAutoservicio th:nth-child(1), .gvAutoservicio td:nth-child(1) {
+            width: 30%;
+        }
+
+        .gvAutoservicio th:nth-child(2), .gvAutoservicio td:nth-child(2) {
+            width: 30%;
+        }
+
+        .gvAutoservicio th:nth-child(3), .gvAutoservicio td:nth-child(3) {
+            width: 25%;
+        }
+
+        .gvAutoservicio th:nth-child(4), .gvAutoservicio td:nth-child(4) {
+            width: 15%;
+        }
+
+        .gvAutoservicio td:nth-child(2),
+        .gvAutoservicio td:nth-child(3) {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+}
+
+@media (max-width: 576px) {
+    .gvAutoservicio tr.gvAutoservicioItemStyle {
+        overflow: visible !important; 
+    }
+}
+
+.gvAutoservicio .info-icon {
+    position: relative;
+    z-index: 5; 
+}
+
+.gvAutoservicio tr.gvAutoservicioItemStyle > td {
+    overflow: visible;
+    position: relative;
+    color: #272833;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.modal-container {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 25px;
+    width: 475px;
+    text-align: center;
+}
+
+.modal-error .modal-icon img {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.modal-text {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.modal-checks {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.modal-checks label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.modal-buttons {
+    justify-content: center;
+    gap: 10px;
+}
+
+.check-item {
+    display: flex;
+    align-items: start;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.check-item input {
+    margin-top: 4px;
+}
+.modal-social {
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+}
+
+.modal-social-text {
+    font-size: 15px;
+    color: #787878;
+    margin-bottom: 10px;
+    display: flex;
+    margin-right: 10px;
+}
+
+.modal-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-icons img {
+    margin: 0 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.modal-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background-color: #fdcd44;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.modal-icons a:hover {
+    transform: scale(1.1);
+    background-color: #007A5E;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-close a {
+    text-decoration: none;
+    color: #787878;
+}
+
+.modal-close:hover {
+    color: red;
+}
+
+
+.btn-default:hover {
+    background-color: #e6e6e6;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.modal-input input {
+    margin-bottom: 10px;
+}
+
+.modal-reenviar {
+    text-align: right;
+    color: #787878;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.modal-reenviar a {
+    color: #fdcd44;
+    font-style: italic;
+}
+
+.modal-reenviar a.disabled {
+    color: #787878;
+}
+
+.modal-reenviar a.disabled:hover {
+    color: #787878;
+}
+
+.error-otp {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: red;
+}
+
+.text-danger {
+    color: red;
+    font-size: 14px;
+    display: flex;
+}
+
+.input-error {
+    background-color: #ffe5e5;
+    border-color: #f38585;
+}
+

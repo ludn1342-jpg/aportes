@@ -1,0 +1,69 @@
+// css/portal.css — solo lo que la Vue app agrega encima del original (vistas 2/3/4 + overlays)
+.fila-oculta { display: none !important; }
+.tabla-datos { border: 1px solid #E7E7ED; border-radius: 10px; overflow: hidden; margin-top: 18px; }
+.fila-dato { display: grid; grid-template-columns: minmax(150px, 38%) 1fr; border-bottom: 1px solid #E7E7ED; }
+.fila-dato:last-child { border-bottom: 0; }
+.fila-dato .k { background: #F5F6F8; padding: 13px 16px; font-size: 14px; font-weight: 600; color: #272833; border-right: 1px solid #E7E7ED; }
+.fila-dato .v { padding: 0 14px; display: flex; align-items: center; min-height: 48px; font-size: 15px; }
+.fila-dato .v input { width: 100%; border: 0; outline: none; font-size: 15px; height: 44px; background: transparent; font-family: Rubik, sans-serif; color: #272833; }
+.fila-dato .v input:focus { border-bottom: 2px solid #007A5E; }
+.fila-dato .v.monto input { font-weight: 700; }
+.aviso-error { color: #C0392B; font-size: 14px; font-weight: 600; margin-top: 14px; text-align: center; }
+.aviso-ok { color: #007A5E; font-size: 14px; font-weight: 600; margin-top: 14px; text-align: center; }
+.medio-opt { display: flex; align-items: center; gap: 13px; border: 1px solid #cdced9; border-radius: 10px; padding: 13px 15px; margin-top: 10px; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.medio-opt:hover { border-color: #007A5E; }
+.medio-opt.sel { border-color: #007A5E; background: #F0FAF6; }
+.medio-opt .radio { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cdced9; flex: 0 0 auto; }
+.medio-opt.sel .radio { border-color: #007A5E; box-shadow: inset 0 0 0 4px #007A5E; }
+.medio-opt b { font-size: 15px; display: block; }
+.medio-opt small { color: #6B6C7E; font-size: 12.5px; }
+.qr-caja { text-align: center; margin: 14px 0; }
+.qr-caja img { width: 230px; height: 230px; object-fit: contain; border: 1px solid #E7E7ED; border-radius: 12px; background: #fff; padding: 10px; margin: 0 auto; }
+.llave-caja { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #F0FAF6; border: 1px solid #007A5E; border-radius: 10px; padding: 13px 15px; flex-wrap: wrap; }
+.llave-caja .llave { font-weight: 700; font-size: 17px; color: #012D25; word-break: break-all; }
+.instrucciones { font-size: 12.5px; color: #6B6C7E; margin-top: 8px; }
+.velo { position: fixed; inset: 0; background: rgba(1, 45, 37, .55); display: flex; align-items: flex-start; justify-content: center; padding-top: calc(50vh - 110px); z-index: 16000; }
+.velo .caja { background: #fff; border-radius: 14px; padding: 26px 30px; text-align: center; max-width: 340px; width: calc(100% - 36px); }
+.velo .spinner { width: 92px; height: 92px; margin: 0 auto 10px; border: 6px solid #E7E7ED; border-top-color: #007A5E; border-radius: 50%; animation: girar 1s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+.velo b { display: block; color: #012D25; font-size: 16px; margin-bottom: 6px; }
+.velo p { font-size: 13px; color: #6B6C7E; }
+.fila-botones { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
+@media (max-width: 760px) {
+  .fila-dato { grid-template-columns: minmax(0, 1fr); }
+  .fila-dato .k { border-right: 0; }
+}
+
+/* ═══ RESTAURACIÓN 11/24: estilos de las vistas Vue que quedaron huérfanos del build pixel-perfect
+   (el style.css del src se desconectó en 40b0fd0 — card-autoservicio, botones y paddings se perdieron).
+   El cliente reportó la página de medios "encimada" en móvil: estos bloques la devuelven. ═══ */
+:root {
+  --form-height: 48px; --form-radius: 8px; --form-border: #cdced9;
+  --verde: #007A5E; --verde-hover: #018f6e; --verde-oscuro-fondo: #012D25;
+  --gris-fondo: #F5F6F8; --gris-borde: #E7E7ED;
+  --texto: #272833; --texto-suave: #6B6C7E;
+  --form-focus: #007A5E; --form-shadow: rgba(0,122,94,0.15); --form-placeholder: #8b8e9c;
+}
+.card-autoservicio {
+  background: #fff; border: 1px solid #f1f2f5; border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 26px 28px 30px; max-width: 760px; margin: 0 auto;
+}
+.titulo-seccion { font-size: 18px; font-weight: 700; color: var(--texto); }
+.form-subtitle { font-size: 14.5px; color: var(--texto-suave); margin: 6px 0 18px; }
+.texto-intro { font-size: 15px; color: var(--texto); margin: 4px 0 16px; }
+.nota-pago-electronico { font-size: 15px; font-weight: 700; color: #1F2937; margin: 18px 0 4px; line-height: 1.5; }
+.row-campo { margin-top: 14px; }
+.row-campo label.principal { display: block; font-size: 14px; font-weight: 600; color: var(--texto); margin-bottom: 6px; }
+.btn-verde-oscuro { background: var(--verde); color: #fff; }
+.btn-verde-oscuro:hover { background: var(--verde-hover); color: #fff; }
+.info-icon { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--texto-suave); color: var(--texto-suave); font-size: 12px; line-height: 16px; text-align: center; display: inline-block; font-weight: 700; }
+/* móvil: más aire en la página de medios (pedido del cliente 11/24) */
+@media (max-width: 760px) {
+  .card-autoservicio { padding: 22px 18px 28px; }
+  .medio-opt { padding: 15px 16px; margin-top: 12px; }
+  .fila-botones { margin-top: 26px; }
+  .row-campo { margin-top: 16px; }
+}
+
+@keyframes girar-proc { to { transform: rotate(360deg); } }

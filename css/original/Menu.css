@@ -1,0 +1,519 @@
+﻿
+* {
+    font-family: Rubik, sans-serif !important;
+    margin: 0;
+}
+.flex {display: flex !important;}
+.div-registrate span {
+    color: #272833;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.flex {
+    display: flex !important;
+}
+
+.pestañaActiva a span {
+    color: #045040;
+    font-weight: 500;
+}
+nav a span:hover {color: #007A5E;} 
+.sort-pages.modify-pages {display: flex;align-items: center;background-color: #ffffff;}
+.heading {width: 15%;text-align: center;}
+.headerCl {
+    display: flex;
+    flex-wrap: wrap;
+    height: 80px;
+    align-items: center;
+    width: 63%;
+    color: #6B6C7E;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #6B6C7E;
+    font-weight: 100;
+}
+
+.div-registrate a {
+    text-decoration: underline !important;
+    color: #007A5E !important;
+    font-weight: bold;
+}
+
+.div-registrate span {
+    color: #272833;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.menu-desplegable-responsive a {
+    color: #272833 !important;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+.ul-medios-de-pago a {
+    font-weight: 100 !important;
+}
+
+.container-link-zona-transaccional a {
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.container-link-portales a {
+    text-decoration: none;
+    padding: 3%;
+    color: #6B6C7E !important;
+    font-weight: 500;
+}
+
+.link-ocultos a {
+    text-decoration: none;
+    color: #272833;
+}
+
+.headerC3 a {
+    color: #272833;
+    font-weight: bold;
+}
+
+.M-pagos > div > a.active {
+    color: #007A5E  !important;
+}
+
+.menu-desplegable-responsive a:hover {
+    color: #007A5E !important;
+    text-decoration: underline;
+}
+
+.container-link-portales a:hover {
+    color: #007A5E;
+    text-decoration: none;
+}
+
+.btn-registrate {
+    color: #007A5E !important;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.container-link-portales a:first-child {
+    background-color: white;
+    color: #272833 !important;
+    border-radius: 8px 8px 0 0;
+    font-weight: 500;
+}
+.oculto{
+    display:none;
+}
+.link-ocultos a:hover {
+    color: #007A5E;
+    text-decoration: underline;
+}
+
+.headerCl .pestaña a {
+    color: #6B6C7E;
+}
+
+.pestañaActiva a:hover {
+    text-decoration: none;
+}
+
+.C-ayuda p a, .M-pagos p a:hover {
+    text-decoration: none;
+}
+
+.pestaña {padding: 0 21px;}
+.pestañaLink {vertical-align: -webkit-baseline-middle;}
+.headerC3 {display: flex;font-weight: 500;font-size: 16px;gap: 10px;}
+
+.headerCl .pestaña a:hover {color: #0056b3;}
+
+.C-ayuda, .M-pagos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+    font-size: 16px;
+}
+
+.pestañaActiva {
+    padding: 8px 21px;
+    background-color: #EBFEF6;
+    border-radius: 50px;
+    font-weight: 600;
+    border: solid #A4F6D5 1px;
+}
+
+
+select.menuMobile {
+    padding: 3px 0px;
+    background-color: #EBFEF6;
+    border-radius: 50px;
+    font-weight: 600;
+    border: solid #A4F6D5 1px;
+}
+
+option.pestanaMobile {
+    color: slategray;
+    background-color: #fff;
+    text-indent: 0;
+}
+
+.header-responsive {
+    display: none;
+}
+
+.g-180 {
+    transform: rotate(180deg)
+}
+
+.submenu {
+    background-color: #f1f2f5;
+    padding-left: 30px;
+    display: none;
+    gap: 30px;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.lista-submenu {
+    display: flex;
+    gap: 20px;
+}
+
+
+/*menu responsive*/
+#cerrarMenu {
+    display: none;
+}
+
+.menu-desplegable-responsive {
+    display: none;
+}
+
+.container-ingresar-zona-transaccional {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.button-menu-zona-transaccional {
+    background-color: #272833;
+    color: white;
+    padding: 6px 0;
+    border-radius: 40px;
+    width: 95%;
+    border: 1px solid #272833;
+    font-size: 16px;
+}
+
+.container-link-zona-transaccional {
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 8px;
+}
+
+.container-link-portales a:first-child:hover {
+    color: #007A5E !important;
+}
+
+.container-link-portales:hover a:nth-child(n+4) {
+    display: block;
+    right: 0;
+}
+
+.link-ocultos {
+    display: none;
+    z-index: 10000;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    padding: 12px 12px;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: 10px
+}
+
+.child-menu {
+    display: none;
+    z-index: 10000;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    padding: 12px 12px;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: 10px
+}
+
+
+
+.container-link-portales {
+    justify-content: space-evenly;
+    display: flex;
+    background-color: #f1f2f5;
+    border: 1px solid #E7E7ED;
+}
+
+.nav-container-iconos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 5px 0;
+    padding: 5px 10px 10px 10px;
+}
+
+.nav-responsive {
+    display: none;
+}
+
+.ul-link-productos, .lista-contactenos {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.ul-medios-de-pago {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    position: absolute;
+    background-color: white;
+    border-radius: 12px;
+    transform: translate(10%, 67%);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 140px;
+}
+
+
+.invisible-submenu {
+    height: auto;
+    opacity: 1;
+}
+
+.ocultar {
+    display: none;
+}
+
+
+
+.menu-desplegable-responsive li {
+    list-style: none;
+}
+
+.btn-ingresa-portal-transaccional {
+    background-color: #007A5E;
+    color: white;
+    font-weight:500;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #007A5E;
+    padding: 8px 21px;
+    font-size: 16px;
+    cursor:pointer;
+    letter-spacing: 0.1px;
+}
+    .btn-ingresa-portal-transaccional:hover {
+        color: white;
+    }
+
+    .efect {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+.efect:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), inset 0 2px 8px rgba(255, 255, 255, 0.9);
+}
+
+@media only screen and (max-width: 430px) {
+    .headerCl {
+        display: none;
+    }
+
+    .header-responsive {
+        display: block;
+    }
+}
+
+
+@media(width > 800px) {
+    .submenu {
+        display: flex;
+        padding: 20px 40px;
+        align-items: center;
+    }
+
+    .ul-link-productos, .lista-contactenos {
+        position: absolute;
+        background-color: white;
+        border-radius: 12px;
+        transform: translate(79%, 25%);
+    }
+    .lista-contactenos {
+        transform: translate(114%, 79%);
+    }
+        
+}
+
+@media(max-width: 700px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-responsive {
+        display: block;
+        font-size: 14px;
+    }
+
+    #navigation {
+        display: none;
+    }
+
+    .navbar-site {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 25px;
+    }
+
+    .menu-desplegable-responsive {
+        flex-direction: column;
+    }
+
+    .navbar-nav.nav-item.dropdown {
+        flex-direction: column;
+    }
+
+    .container-link-page li:nth-child(3) {
+        flex-direction: column;
+        align-items: baseline;
+    }
+
+    .invisible-submenu {
+        height: 0;
+        opacity: 0;
+    }
+
+    .headerC3 {
+        width: 100%;
+        justify-content: space-evenly;
+        border: 1px solid #f1f2f5;
+        padding: 20px 0;
+    }
+
+    .C-ayuda, .M-pagos {
+        width: auto;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .icon-circulo {
+        border: 1px solid #f1f2f5;
+        border-radius: 50%;
+    }
+
+    .activeLista a {
+        font-weight: bold;
+        color: #007A5E !important;
+    }
+
+    ul.ul-link-productos a {
+        color: #6B6C7E;
+    }
+
+    .C-ayuda:hover .icon-circulo {
+        background-color: #EBFEF6;
+    }
+
+    .C-ayuda:hover p a {
+        color: #007A5E !important;
+    }
+
+    .M-pagos:hover .icon-circulo {
+        background-color: #EBFEF6;
+    }
+
+    .M-pagos:hover p a {
+        color: #007A5E !important;
+    }
+
+    .lista-productos-empresa, .lista-opciones-contactanos{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .activeLista {
+        background-color: #EBFEF6;
+        padding: 12px;
+        border-radius: 24px;
+    }
+    
+}
+
+
+@media(width < 800px ) {
+    .seccion-medios-de-pago {
+        padding: 80px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .seccion-medios-de-pago span {
+            font-size: 16px;
+            font-weight: 500;
+            color: #272833 !important
+        }
+
+        .seccion-medios-de-pago a {
+            color: #6B6C7E !important;
+            position: relative;
+            right: 100px;
+            text-align: start;
+        }
+
+            .seccion-medios-de-pago a:nth-child(2n+1) {
+                margin-top: 20px;
+            }
+
+    .M-pagos div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .div-registrate {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        place-content: center;
+        margin: 20px;
+    }
+     
+}

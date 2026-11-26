@@ -1,0 +1,65 @@
+﻿.otras-opciones {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 16px;
+}
+.otras-opciones h2 {
+    color: #272833;
+    font-size: 24px;
+    font-weight: 500;
+}
+.otras-opciones p {
+    color: #6B6C7E;
+    font-size: 16px;
+}
+.otras-opciones-text-panel {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.card-opcion {
+    max-width: 288px;
+    height: 68px;
+    border-radius: 8px 8px 8px 8px;
+    background-color: #FFFFFF;
+    border: solid 1px #CDCED9 !important;
+    vertical-align: middle;
+    margin-top: 1%;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    gap: 8px;
+    padding: 12px 14px;
+    overflow: visible;
+}
+.card-opcion-text {
+    align-items: center;
+    display: inline-flex;
+    gap: 10px;
+    text-decoration: none;
+    color: #272833;
+    flex: 1 1 auto;
+}
+.textoBotonMenuBanner {
+    width: 80%;
+    text-align: left;
+    margin-left: 10px;
+    color: #272833;
+}
+.card-opcion-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.card-opcion-text img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+

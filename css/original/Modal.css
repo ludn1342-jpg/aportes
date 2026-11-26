@@ -1,0 +1,168 @@
+﻿.modal {
+    max-width: 40%;
+    border-radius: 8px;
+    padding-inline: 15px;
+}
+
+#closeBtnModal {
+    padding: 0;
+    margin-top: -49px;
+    border: none;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    position: absolute;
+    box-shadow: 0px 0px 3px 0px rgba(173, 173, 173, 0.75);
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(173, 173, 173, 0.75);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(173, 173, 173, 0.75);
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 20px;
+}
+
+#closeBtnModal:hover {
+    background: rgb(226, 226, 226);
+}
+
+.closeBtnModal {
+    margin-top: -21px !important;
+}
+
+#dynamicContent {
+    display: flex;
+    padding-inline: 10px;
+    padding-bottom: 15px;
+}
+
+.tipoAlerta {
+    align-items: center;
+    position: relative;
+    display: flex;
+    place-content: center;
+    transform: translateY(-50px);
+}
+
+.center-dynamicContent {
+    text-align: center !important;
+    display: flex;
+    place-content: center;
+    flex-wrap: wrap;
+}
+
+.contentModal .resumenVal,
+.contentModal .resumenval {
+    font-size: 16px;
+    color: #6B6C7E;
+}
+
+.dynamicButton {
+    margin-block: 13px;
+    margin-inline: 10px;
+    padding-inline: 10px;
+    padding-block: 5px;
+    font-size: 16px;
+    border-radius: 24px;
+    border: 1px solid #CDCED9;
+    background: white;
+    color: #272833;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    padding: 12px 16px;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+
+.contentImage {
+    width: 100%;
+    text-align: center;
+    margin-top: -35px
+}
+
+.contentImage2 {
+    margin-top: -59px !important;
+    height: 80px !important;
+}
+
+.show {
+    display: none !important;
+}
+
+.dynamicButton:active {
+    color: #045040;
+    border: solid #A4F6D5 1px;
+    background-color: #EBFEF6;
+}
+
+.contentModal {
+    padding-inline: 20px;
+    text-align: center;
+    transform: translateY(-20px);
+}
+
+.contentModal p {
+    font-family: Arial, sans-serif;
+    color: #4F4F4F;
+    font-size: 14px;
+    margin: 0;
+}
+
+.classHeader {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+}
+
+.showdarkoverlay {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.invisible2, .modalCargando  {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    z-index: 999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 110vh;
+    background: rgba(0, 0, 0, 0.2);
+    font-family: 'Rubik', sans-serif;
+}
+.subtituloModal {
+    font-size: 16px !important;
+    color: #6b6c7e !important;
+    margin-bottom: 12px !important
+}
+
+
+.modal2 {
+    box-shadow: 0 0px 80px rgba(0, 0, 0, 0.2);
+}
+
+.fullWidth {
+    max-width: 90% !important;
+    width: 90% !important;
+}
+
+.titleHeader {
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #0C0C0D;
+    font-weight: bold;
+    margin: 0;
+    transform: translateY(-30px);
+}
+
+@media(width < 800px) {
+    .modal {
+        max-width: 90%;
+    }
+}

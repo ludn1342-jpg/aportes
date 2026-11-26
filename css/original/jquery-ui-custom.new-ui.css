@@ -1,0 +1,136 @@
+﻿
+.ui-widget-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0b0f19 !important;
+    opacity: .6 !important;
+    filter: Alpha(Opacity=70);
+}
+
+.ui-dialog {
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 40px rgba(17,24,39,.2) !important;
+    color: #111827 !important;
+    padding: 0 !important; 
+    width: 640px !important; 
+    max-width: calc(100% - 32px) !important;
+    overflow: visible !important;
+    z-index: 1050 !important;
+}
+
+    .ui-dialog .ui-dialog-titlebar {
+        background: #fff !important;
+        border: 0 !important;
+        padding: 28px 24px 8px !important;
+        text-align: center !important;
+        position: relative !important;
+        padding-top: 60px !important;
+        border-radius:8px;
+    }
+
+    .ui-dialog .ui-dialog-title {
+        float: none !important;
+        margin: 0 !important;
+        font-size: 28px !important;
+        font-weight: 800 !important;
+        color: #0C0C0D !important;
+        line-height: 1.2 !important;
+    }
+
+    .ui-dialog .ui-dialog-titlebar-close {
+        display: none !important;
+    }
+
+    .ui-dialog .ui-dialog-content {
+        background: #fff !important;
+        padding: 8px 28px 0 28px !important;
+        min-height: unset !important;
+        height: auto !important;
+        overflow: visible !important;
+        color: #111827 !important;
+        font-size: 16px !important;
+    }
+
+
+.resumenVal img {
+    position: absolute !important;
+    top: -50px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100px !important;
+    height: 100px !important;
+    margin: 0 !important;
+    float: none !important;
+}
+
+/* Contenido de texto dentro de .resumenVal */
+.resumenVal {
+    font-family: Verdana, Arial, Helvetica, sans-serif !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    text-align: left !important;
+}
+
+    .resumenVal > div,
+    .resumenVal > p {
+        float: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: 16px !important;
+        font-weight: 400 !important;
+        color: #6B6C7E !important;
+    }
+
+    .resumenVal ul {
+        margin: 12px 0 0 18px !important;
+        color: #4F4F4F !important;
+    }
+
+    .resumenVal li {
+        list-style: disc outside;
+        white-space: normal;
+        margin: 4px 0;
+        color: #6B6C7E;
+    }
+
+/* Pie y botón (pill) */
+.ui-dialog .ui-dialog-buttonpane {
+    border: 0 !important;
+    background: #fff !important;
+    padding: 24px !important;
+    text-align: center !important;
+    border-radius:8px;
+}
+
+    .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+        float: none !important;
+        text-align: center !important;
+    }
+
+    .ui-dialog .ui-dialog-buttonpane .ui-button {
+        background: #fff !important;
+        border: 1px solid #CDCED9 !important;
+        color: #272833 !important;
+        border-radius: 9999px !important;
+        padding: 12px 16px !important;
+        font-weight: 600 !important;
+        box-shadow: none !important;
+        font-size: 16px;
+    }
+
+        .ui-dialog .ui-dialog-buttonpane .ui-button:hover {
+            background: #f5f7fa !important;
+        }
+.no-scroll {
+    overflow: hidden !important;
+}
+
+/* Opcional: desactiva las manillas de resize y bordes jQuery UI */
+.ui-dialog .ui-resizable-handle {
+    display: none !important;
+}
+
