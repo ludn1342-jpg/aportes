@@ -1,0 +1,17 @@
+{
+  "name": "aportes-en-linea-server",
+  "version": "1.0.0",
+  "description": "Servidor Aportes en Línea - Pago electrónico PSE",
+  "main": "aportes-server.js",
+  "scripts": {
+    "start": "node aportes-server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "node-fetch": "^2.7.0"
+  }
+}
